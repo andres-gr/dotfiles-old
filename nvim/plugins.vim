@@ -91,5 +91,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" Minimap
+Plug 'severin-lemaignan/vim-minimap'
+
 " Initialize plugin system
 call plug#end()

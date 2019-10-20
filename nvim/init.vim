@@ -9,10 +9,13 @@ source ~/.config/nvim/plugins.vim
 let g:mapleader=','
 
 " Disable line numbers
-set nonumber
+" set nonumber
 
 " Don't show last command
-set noshowcmd
+" set noshowcmd
+
+" Show last command
+set showcmd
 
 " Yank and paste with the system clipboard
 set clipboard=unnamed
@@ -34,7 +37,7 @@ set shiftwidth=2
 set nowrap
 
 " Don't highlight current cursor line
-set nocursorline
+" set nocursorline
 
 " Disable line/column number in status line
 " Shows up in preview window when airline is disabled if not
@@ -229,11 +232,11 @@ let g:echodoc#enable_at_startup = 1
 
 " === vim-javascript === "
 " Enable syntax highlighting for JSDoc
-let g:javascript_plugin_jsdoc = 1
+" let g:javascript_plugin_jsdoc = 1
 
 " === vim-jsx === "
 " Highlight jsx syntax even in non .jsx files
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 " === javascript-libraries-syntax === "
 " let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
@@ -333,6 +336,9 @@ function! Handle_Win_Enter()
     setlocal winhighlight=Normal:MarkdownError
   endif
 endfunction
+
+" Set line highlight
+set cursorline
 
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "

@@ -19,7 +19,7 @@ export TERM="xterm-256color"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node tmux zsh-syntax-highlighting zsh-completions)
+plugins=(git node tmux zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
@@ -32,6 +32,8 @@ ZSH_TMUX_AUTOSTART=true
 
 # Automatically connect to a previous session if it exists
 ZSH_TMUX_AUTOCONNECT=true
+
+# ZSH_TMUX_ITERM2=true
 
 # Enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -111,6 +113,17 @@ fgr() {
   then
      vim $file +$line
   fi
+}
+
+cpdtfls() {
+  cp $HOME/.zshrc $HOME/devel/dotfiles/.zshrc
+  cp $HOME/.tmux.conf $HOME/devel/dotfiles/.tmux.conf
+  cp $HOME/.bash_aliases $HOME/devel/dotfiles/.bash_aliases
+  cp $HOME/.config/nvim/init.vim $HOME/devel/dotfiles/nvim
+  cp $HOME/.config/nvim/plugins.vim $HOME/devel/dotfiles/nvim
+  cp $HOME/.config/nvim/space.vim $HOME/devel/dotfiles/nvim
+  cp $HOME/.config/nvim/coc-settings.json $HOME/devel/dotfiles/nvim
+  cp -rf $HOME/.config/nvim/snippets $HOME/devel/dotfiles/nvim
 }
 
 # Enabled zsh-autosuggestions
