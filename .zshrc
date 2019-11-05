@@ -2,6 +2,8 @@
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin/npm:$PATH"
+export PATH="/usr/local/bin/npx:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -19,7 +21,7 @@ export TERM="xterm-256color"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node tmux zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions yarn git)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
@@ -126,8 +128,12 @@ cpdtfls() {
   cp -rf $HOME/.config/nvim/snippets $HOME/devel/dotfiles/nvim
 }
 
+cdpm() {
+  cd $(pm gp)
+}
+
 # Enabled zsh-autosuggestions
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
 ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'

@@ -255,6 +255,8 @@ set termguicolors
 set background=dark
 try
 "  colorscheme OceanicNext
+syntax on
+syntax on
 colorscheme dracula
 catch
   colorscheme slate
