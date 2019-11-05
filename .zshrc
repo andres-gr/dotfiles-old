@@ -129,7 +129,12 @@ cpdtfls() {
 }
 
 cdpm() {
-  cd $(pm gp)
+  if [ -z $1 ]; then
+    echo $1
+    cd $(pm gp)
+  else
+    cd $(pm gp $1)
+  fi
 }
 
 # Enabled zsh-autosuggestions
