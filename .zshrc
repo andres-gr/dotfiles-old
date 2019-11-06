@@ -1,9 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/bin/npm:$PATH"
-export PATH="/usr/local/bin/npx:$PATH"
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
