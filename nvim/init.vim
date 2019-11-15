@@ -1,4 +1,5 @@
 scriptencoding utf-8
+
 source ~/.config/nvim/plugins.vim
 
 " ============================================================================ "
@@ -38,6 +39,9 @@ set nowrap
 
 " Don't highlight current cursor line
 " set nocursorline
+
+" Set line highlight
+set cursorline
 
 " Disable line/column number in status line
 " Shows up in preview window when airline is disabled if not
@@ -253,10 +257,11 @@ set termguicolors
 
 " Editor theme
 set background=dark
+
+syntax on
+
 try
 "  colorscheme OceanicNext
-syntax on
-syntax on
 colorscheme dracula
 catch
   colorscheme slate
@@ -338,9 +343,6 @@ function! Handle_Win_Enter()
     setlocal winhighlight=Normal:MarkdownError
   endif
 endfunction
-
-" Set line highlight
-set cursorline
 
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
@@ -472,3 +474,4 @@ set noswapfile
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
+
