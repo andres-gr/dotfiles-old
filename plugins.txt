@@ -1,0 +1,15 @@
+robbyrussell/oh-my-zsh
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/gitfast
+robbyrussell/oh-my-zsh path:plugins/node
+robbyrussell/oh-my-zsh path:plugins/npm
+robbyrussell/oh-my-zsh path:plugins/nvm
+robbyrussell/oh-my-zsh path:plugins/tmux
+robbyrussell/oh-my-zsh path:plugins/z
+
+zdharma/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
+
+zsh-users/zsh-completions
+sinetoami/antibody-completion
+g-plane/zsh-yarn-autocompletions

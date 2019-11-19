@@ -1,6 +1,9 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+typeset -U path
+typeset -U fpath
+
 path=(/usr/local/bin $path)
 path=(/usr/local/opt/ruby/bin $path)
 
@@ -26,6 +29,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Set default editor to nvim
 # export EDITOR='nvim'
+export EDITOR="code"
 
 # Enabled true color support for terminals
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -34,29 +38,34 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  node
-  npm
-  tmux
-)
+# plugins=(
+#   git
+#   gitfast
+#   node
+#   npm
+#   nvm
+#   tmux
+#   z
+# )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 source $HOME/alias.zsh
 
 source $HOME/.zsh/plugins.sh
 
-autoload -Uz compinit && compinit
+fpath=($HOME/.zsh/git-completion.zsh $fpath)
+
+autoload -U compinit && compinit
 
 # TMUX
 # Automatically start tmux
-ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART=true
 
 # Automatically connect to a previous session if it exists
 ZSH_TMUX_AUTOCONNECT=true
 
-ZSH_TMUX_ITERM2=true
+# ZSH_TMUX_ITERM2=true
 
 # Enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -164,17 +173,17 @@ SPACESHIP_GIT_STATUS_STASHED=''
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-declare -a NODE_GLOBALS_NPM=(`find $HOME/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*'`)
-declare -a NODE_GLOBALS=(`echo $NODE_GLOBALS_NPM | xargs -n1 basename | sort | uniq`)
-NODE_GLOBALS+=("node")
-NODE_GLOBALS+=("nvm")
+# declare -a NODE_GLOBALS_NPM=(`find $HOME/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*'`)
+# declare -a NODE_GLOBALS=(`echo $NODE_GLOBALS_NPM | xargs -n1 basename | sort | uniq`)
+# NODE_GLOBALS+=("node")
+# NODE_GLOBALS+=("nvm")
 
-load_nvm () {
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  export NODE_PATH="$NVM_BIN"
-}
+# load_nvm () {
+#   export NVM_DIR=~/.nvm
+#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+#   export NODE_PATH="$NVM_BIN"
+# }
 
-for cmd in "${NODE_GLOBALS[@]}"; do
-  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-done
+# for cmd in "${NODE_GLOBALS[@]}"; do
+#   eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+# done

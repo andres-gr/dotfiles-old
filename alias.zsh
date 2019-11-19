@@ -8,5 +8,6 @@ alias top="vtop --theme=wizard"
 alias ls="colorls"
 alias chrmdbg="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias rldzsh="source ~/.zshrc"
-alias weather="curl v2.wttr.in"      
-alias grep='grep --color=auto'   
+alias weather="curl v2.wttr.in"
+alias grep="grep --color=auto"
+alias editzsh="$EDITOR ~/.zshrc"
