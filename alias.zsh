@@ -1,11 +1,10 @@
 alias rna="react-native run-android"
 alias rni="react-native run-ios"
 alias nvidia-update="bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)"
-
 alias cdkc="cd /Volumes/SeagateHDD/Users/andres/devel/dou/projectfrog/Kit_connect-App_Framework-"
 alias cdlm="cd /Volumes/SeagateHDD/Users/andres/devel/dou/projectfrog/kit-connect-lambda"
 alias vim="nvim"
 alias top="vtop --theme=wizard"
-alias ls="colorls -lA --sd"
+alias ls="colorls"
 alias chrmdbg="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 alias rldzsh="source ~/.zshrc"
