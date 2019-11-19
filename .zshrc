@@ -4,6 +4,12 @@ export LANG=en_US.UTF-8
 typeset -U path
 typeset -U fpath
 
+export TERM="xterm-256color"
+export ZSH=$HOME/.oh-my-zsh
+export ANDROID_AVD_HOME=$HOME/.android/avd
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANTIBODY_HOME=$HOME/.zsh
+
 path=(/usr/local/bin $path)
 path=(/usr/local/opt/ruby/bin $path)
 
@@ -12,14 +18,10 @@ path+=(
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
   $(ruby -e 'puts File.join(Gem.user_dir, "bin")')
+  $(dirname $(gem which colorls))/tab_complete.sh
 )
 
 export PATH
-export TERM="xterm-256color"
-export ZSH=$HOME/.oh-my-zsh
-export ANDROID_AVD_HOME=$HOME/.android/avd
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export ANTIBODY_HOME=$HOME/.zsh
 
 # Setting rg as the default source for fzf
 export FZF_DEFAULT_COMMAND='rg --files'
@@ -52,15 +54,27 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 source $HOME/alias.zsh
 
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+fpath=(/usr/local/share/zsh/functions $fpath)
+fpath=("/usr/local/Cellar/zsh/$ZSH_VERSION/share/zsh/functions" $fpath)
+fpath=("/usr/local/Cellar/zsh/$ZSH_VERSION/share/zsh/site-functions" $fpath)
+
 source $HOME/.zsh/plugins.sh
 
-fpath=($HOME/.zsh/git-completion.zsh $fpath)
+# fpath=("${(@)fpath:#/Volumes/SeagateHDD/Users/andres/.oh-my-zsh/functions}")
+# fpath=("${(@)fpath:#/Volumes/SeagateHDD/Users/andres/.oh-my-zsh/completions}")
+# fpath=("${(@)fpath:#/usr/local/share/zsh/site-functions}")
+# fpath=("${(@)fpath:#/usr/share/zsh/site-functions}")
+# fpath=("${(@)fpath:#/usr/share/zsh/5.3/functions}")
+
+# fpath=(/usr/local/share/zsh/functions $fpath)
+# fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 autoload -U compinit && compinit
 
 # TMUX
 # Automatically start tmux
-# ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=true
 
 # Automatically connect to a previous session if it exists
 ZSH_TMUX_AUTOCONNECT=true
@@ -171,7 +185,7 @@ prompt spaceship
 # SPACESHIP_NODE_SHOW=false
 SPACESHIP_GIT_STATUS_STASHED=''
 
-source $(dirname $(gem which colorls))/tab_complete.sh
+# source $(dirname $(gem which colorls))/tab_complete.sh
 
 # declare -a NODE_GLOBALS_NPM=(`find $HOME/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*'`)
 # declare -a NODE_GLOBALS=(`echo $NODE_GLOBALS_NPM | xargs -n1 basename | sort | uniq`)
