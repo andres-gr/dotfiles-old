@@ -16,6 +16,7 @@ export TERM="xterm-256color"
 export ZSH=$HOME/.oh-my-zsh
 export ANDROID_AVD_HOME=$HOME/.android/avd
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANTIBODY_HOME=$HOME/.zsh
 
 # Setting rg as the default source for fzf
 export FZF_DEFAULT_COMMAND='rg --files'
@@ -37,17 +38,16 @@ plugins=(
   git
   node
   npm
-  yarn
-  zsh-autosuggestions
-  zsh-completions
-  zsh-syntax-highlighting
+  tmux
 )
-
-autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/alias.zsh
+
+source $HOME/.zsh/plugins.sh
+
+autoload -Uz compinit && compinit
 
 # TMUX
 # Automatically start tmux
@@ -133,6 +133,7 @@ cpdtfls() {
   cp $HOME/.zshrc $HOME/devel/dotfiles/.zshrc
   cp $HOME/.tmux.conf $HOME/devel/dotfiles/.tmux.conf
   cp $HOME/alias.zsh $HOME/devel/dotfiles/alias.zsh
+  cp $HOME/.zsh/plugins.txt $HOME/devel/dotfiles/plugins.txt
   cp -rf $HOME/.config/nvim/init.vim $HOME/devel/dotfiles/nvim
   cp -rf $HOME/.config/nvim/plugins.vim $HOME/devel/dotfiles/nvim
   cp -rf $HOME/.config/nvim/space.vim $HOME/devel/dotfiles/nvim
@@ -149,12 +150,9 @@ cdpm() {
   fi
 }
 
-# Enabled zsh-autosuggestions
-# source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
-ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
+FAST_HIGHLIGHT_STYLES[precommand]='fg=green'
+FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan'
 
 # Set Spaceship as prompt
 autoload -U promptinit; promptinit
