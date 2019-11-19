@@ -201,3 +201,5 @@ SPACESHIP_GIT_STATUS_STASHED=''
 # for cmd in "${NODE_GLOBALS[@]}"; do
 #   eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
 # done
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
