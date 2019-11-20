@@ -61,14 +61,15 @@ fpath=("/usr/local/Cellar/zsh/$ZSH_VERSION/share/zsh/site-functions" $fpath)
 
 source $HOME/.zsh/plugins.sh
 
-# fpath=("${(@)fpath:#/Volumes/SeagateHDD/Users/andres/.oh-my-zsh/functions}")
-# fpath=("${(@)fpath:#/Volumes/SeagateHDD/Users/andres/.oh-my-zsh/completions}")
-# fpath=("${(@)fpath:#/usr/local/share/zsh/site-functions}")
-# fpath=("${(@)fpath:#/usr/share/zsh/site-functions}")
-# fpath=("${(@)fpath:#/usr/share/zsh/5.3/functions}")
-
-# fpath=(/usr/local/share/zsh/functions $fpath)
-# fpath=(/usr/local/share/zsh/site-functions $fpath)
+plugins=(
+  git
+  gitfast
+  node
+  npm
+  tmux
+  yarn
+  z
+)
 
 autoload -U compinit && compinit
 
