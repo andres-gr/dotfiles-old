@@ -36,22 +36,6 @@ export EDITOR="code"
 # Enabled true color support for terminals
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(
-#   git
-#   gitfast
-#   node
-#   npm
-#   nvm
-#   tmux
-#   z
-# )
-
-# source $ZSH/oh-my-zsh.sh
-
 source $HOME/alias.zsh
 
 fpath=(/usr/local/share/zsh/site-functions $fpath)
