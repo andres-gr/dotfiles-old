@@ -43,8 +43,6 @@ fpath=(/usr/local/share/zsh/functions $fpath)
 fpath=("/usr/local/Cellar/zsh/$ZSH_VERSION/share/zsh/functions" $fpath)
 fpath=("/usr/local/Cellar/zsh/$ZSH_VERSION/share/zsh/site-functions" $fpath)
 
-source $HOME/.zsh/plugins.sh
-
 plugins=(
   git
   gitfast
@@ -54,6 +52,8 @@ plugins=(
   yarn
   z
 )
+
+source $HOME/.zsh/plugins.sh
 
 autoload -U compinit && compinit
 
