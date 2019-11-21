@@ -3,5 +3,5 @@
 if [ -z "$1" ]; then
   printf " "
 else
-  printf " #[fg=colour8]| #[fg=cyan]$1 "
+  printf " #[fg=#6272A4]| #[fg=colour13]$1 "
 fi
