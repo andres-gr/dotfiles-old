@@ -143,6 +143,7 @@ cpdtfls() {
   cp $HOME/.zsh/plugins.txt $HOME/devel/dotfiles/plugins.txt
   cp $HOME/.zshrc $HOME/devel/dotfiles/.zshrc
   cp $HOME/alias.zsh $HOME/devel/dotfiles/alias.zsh
+  cp $HOME/Documents/com.googlecode.iterm2.plist $HOME/devel/dotfiles/com.googlecode.iterm2.plist
   cp -rf $HOME/.config/nvim/coc-settings.json $HOME/devel/dotfiles/nvim
   cp -rf $HOME/.config/nvim/init.vim $HOME/devel/dotfiles/nvim
   cp -rf $HOME/.config/nvim/plugins.vim $HOME/devel/dotfiles/nvim
