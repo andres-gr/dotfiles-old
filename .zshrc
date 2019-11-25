@@ -173,6 +173,11 @@ SPACESHIP_GIT_STATUS_STASHED=''
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach -t default || tmux new -s default
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#   tmux attach -t default || tmux new -s default
+# fi
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+  # tmux attach || tmux new
 fi
