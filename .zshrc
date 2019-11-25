@@ -138,16 +138,17 @@ fgr() {
 }
 
 cpdtfls() {
-  cp $HOME/.zshrc $HOME/devel/dotfiles/.zshrc
+  cp $HOME/.gitconfig $HOME/devel/dotfiles/.gitconfig
   cp $HOME/.tmux.conf $HOME/devel/dotfiles/.tmux.conf
-  cp $HOME/alias.zsh $HOME/devel/dotfiles/alias.zsh
   cp $HOME/.zsh/plugins.txt $HOME/devel/dotfiles/plugins.txt
-  cp -rf $HOME/.tmux/.git_status.sh $HOME/devel/dotfiles/tpm/
+  cp $HOME/.zshrc $HOME/devel/dotfiles/.zshrc
+  cp $HOME/alias.zsh $HOME/devel/dotfiles/alias.zsh
+  cp -rf $HOME/.config/nvim/coc-settings.json $HOME/devel/dotfiles/nvim
   cp -rf $HOME/.config/nvim/init.vim $HOME/devel/dotfiles/nvim
   cp -rf $HOME/.config/nvim/plugins.vim $HOME/devel/dotfiles/nvim
-  cp -rf $HOME/.config/nvim/space.vim $HOME/devel/dotfiles/nvim
-  cp -rf $HOME/.config/nvim/coc-settings.json $HOME/devel/dotfiles/nvim
   cp -rf $HOME/.config/nvim/snippets $HOME/devel/dotfiles/nvim
+  cp -rf $HOME/.config/nvim/space.vim $HOME/devel/dotfiles/nvim
+  cp -rf $HOME/.tmux/.git_status.sh $HOME/devel/dotfiles/tpm/
 }
 
 cdpm() {

@@ -1,0 +1,36 @@
+[user]
+	name = Andres Garcia
+	email = andres.gar@gmail.com
+[core]
+	excludesfile = /Volumes/hackintoshHDD/Users/andres/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+  a = !git add . && git status
+  aa = !git add . && git add -u . && git status
+  aacm = !git add . && git add -u . && git status && git commit -m
+  ac = !git add . && git commit
+  acm = !git add . && git commit -m
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+  au = !git add -u . && git status
+  c = commit
+  ca = commit --amend # careful
+  ck = checkout
+  cm = commit -m
+  d = diff
+  ft = fetch origin
+  l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ll = log --stat --abbrev-commit
+  llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
+  master = checkout master
+  pl = !git pull origin
+  po = !git push -u origin
+  pu = !git push
+  s = !git status
+  spull = svn rebase
+  spush = svn dcommit
