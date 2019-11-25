@@ -59,7 +59,7 @@ autoload -U compinit && compinit
 
 # TMUX
 # Automatically start tmux
-ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART=true
 
 # Automatically connect to a previous session if it exists
 ZSH_TMUX_AUTOCONNECT=true
@@ -171,21 +171,8 @@ prompt spaceship
 # SPACESHIP_NODE_SHOW=false
 SPACESHIP_GIT_STATUS_STASHED=''
 
-# source $(dirname $(gem which colorls))/tab_complete.sh
-
-# declare -a NODE_GLOBALS_NPM=(`find $HOME/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*'`)
-# declare -a NODE_GLOBALS=(`echo $NODE_GLOBALS_NPM | xargs -n1 basename | sort | uniq`)
-# NODE_GLOBALS+=("node")
-# NODE_GLOBALS+=("nvm")
-
-# load_nvm () {
-#   export NVM_DIR=~/.nvm
-#   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-#   export NODE_PATH="$NVM_BIN"
-# }
-
-# for cmd in "${NODE_GLOBALS[@]}"; do
-#   eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-# done
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach -t default || tmux new -s default
+fi
