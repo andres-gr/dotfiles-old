@@ -1,6 +1,6 @@
 robbyrussell/oh-my-zsh
 
-zsh-users/zsh-completions
+# zsh-users/zsh-completions
 
 # robbyrussell/oh-my-zsh path:lib/completion.zsh
 # robbyrussell/oh-my-zsh path:lib/history.zsh
@@ -12,7 +12,7 @@ zsh-users/zsh-completions
 # robbyrussell/oh-my-zsh path:plugins/z
 
 zdharma/fast-syntax-highlighting
-zsh-users/zsh-autosuggestions
+# zsh-users/zsh-autosuggestions
 
 sinetoami/antibody-completion
 

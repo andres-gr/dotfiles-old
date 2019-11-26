@@ -36,21 +36,17 @@ export EDITOR="code"
 # Enabled true color support for terminals
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-source $HOME/alias.zsh
-
-fpath=(/usr/local/share/zsh/site-functions $fpath)
-fpath=(/usr/local/share/zsh/functions $fpath)
-fpath=("/usr/local/Cellar/zsh/$ZSH_VERSION/share/zsh/functions" $fpath)
-fpath=("/usr/local/Cellar/zsh/$ZSH_VERSION/share/zsh/site-functions" $fpath)
-
 plugins=(
   git
   gitfast
+  history
   node
   npm
   tmux
   yarn
   z
+  zsh-autosuggestions
+  zsh-completions
 )
 
 source $HOME/.zsh/plugins.sh
@@ -166,14 +162,12 @@ FAST_HIGHLIGHT_STYLES[precommand]='fg=green'
 FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan'
 
 # Set Spaceship as prompt
-autoload -U promptinit; promptinit
+autoload -U promptinit && promptinit
 prompt spaceship
 
 # SPACESHIP_PACKAGE_SHOW=false
 # SPACESHIP_NODE_SHOW=false
 SPACESHIP_GIT_STATUS_STASHED=''
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #   tmux attach -t default || tmux new -s default
@@ -183,3 +177,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   exec tmux
   # tmux attach || tmux new
 fi
+
+source $HOME/alias.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
