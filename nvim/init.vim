@@ -112,7 +112,7 @@ call denite#custom#var('buffer', 'date_format', '')
 let s:denite_options = {'default' : {
 \ 'split': 'floating',
 \ 'start_filter': 1,
-\ 'auto_resize': 1,
+\ 'auto_resize': 0,
 \ 'source_names': 'short',
 \ 'prompt': 'λ ',
 \ 'statusline': 0,
@@ -299,7 +299,7 @@ set splitbelow
 set noshowmode
 
 " Set floating window to be slightly transparent
- set winbl=10
+set winbl=10
 
 " coc.nvim color changes
 hi! link CocErrorSign WarningMsg
