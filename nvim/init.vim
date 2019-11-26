@@ -45,7 +45,7 @@ set softtabstop=2
 set shiftwidth=2
 
 " do not wrap long lines by default
-set nowrap
+" set nowrap
 
 " Don't highlight current cursor line
 " set nocursorline
