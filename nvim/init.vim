@@ -1,3 +1,13 @@
+" COLOR_CYAN="#8BE9FD"
+" COLOR_DARK="#6272A4"
+" COLOR_GREEN="#50FA7B"
+" COLOR_ORANGE="#FFB86C"
+" COLOR_PINK="#FF79C6"
+" COLOR_PURPLE="#BD93F9"
+" COLOR_RED="#FF5555"
+" COLOR_WHITE="#F8F8F2"
+" COLOR_YELLOW="#F1FA8C"
+
 scriptencoding utf-8
 
 source ~/.config/nvim/plugins.vim
@@ -7,7 +17,7 @@ source ~/.config/nvim/plugins.vim
 " ============================================================================ "
 
 " Remap leader key to ,
-let g:mapleader=','
+let g:mapleader=' '
 
 " Disable line numbers
 " set nonumber
@@ -90,11 +100,6 @@ call denite#custom#var('grep', 'final_opts', [])
 " Remove date from buffer list
 call denite#custom#var('buffer', 'date_format', '')
 
-" Open file commands
-call denite#custom#map('insert,normal', "<C-t>", '<denite:do_action:tabopen>')
-call denite#custom#map('insert,normal', "<C-v>", '<denite:do_action:vsplit>')
-call denite#custom#map('insert,normal', "<C-h>", '<denite:do_action:split>')
-
 " Custom options for Denite
 "   auto_resize             - Auto resize the Denite window height automatically.
 "   prompt                  - Customize denite prompt
@@ -109,13 +114,12 @@ let s:denite_options = {'default' : {
 \ 'start_filter': 1,
 \ 'auto_resize': 1,
 \ 'source_names': 'short',
-\ 'prompt': 'λ:',
+\ 'prompt': 'λ ',
 \ 'statusline': 0,
-\ 'highlight_matched_char': 'WildMenu',
+\ 'highlight_matched_char': 'QuickFixLine',
 \ 'highlight_matched_range': 'Visual',
 \ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'StatusLine',
-\ 'highlight_prompt': 'StatusLine',
+\ 'highlight_filter_background': 'DiffAdd',
 \ 'winrow': 1,
 \ 'vertical_preview': 1
 \ }}
@@ -169,8 +173,8 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 
 " Custom icons for expandable/expanded directories
-let g:NERDTreeDirArrowExpandable = '⬏'
-let g:NERDTreeDirArrowCollapsible = '⬎'
+" let g:NERDTreeDirArrowExpandable = '⬏'
+" let g:NERDTreeDirArrowCollapsible = '⬎'
 
 " Hide certain files and directories from NERDTree
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
@@ -220,8 +224,8 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-let g:airline_left_sep = '❮'
-let g:airline_right_sep = '❯'
+" let g:airline_left_sep = '❮'
+" let g:airline_right_sep = '❯'
 
 " Don't show git changes to current file in airline
 let g:airline#extensions#hunks#enabled=0
@@ -262,7 +266,7 @@ syntax on
 
 try
 "  colorscheme OceanicNext
-colorscheme dracula
+  colorscheme dracula
 catch
   colorscheme slate
 endtry
@@ -295,7 +299,7 @@ set splitbelow
 set noshowmode
 
 " Set floating window to be slightly transparent
-" set winbl=10
+ set winbl=10
 
 " coc.nvim color changes
 hi! link CocErrorSign WarningMsg
@@ -362,6 +366,9 @@ nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 "   <C-o>         - Switch to normal mode inside of search results
 "   <Esc>         - Exit denite window in any mode
 "   <CR>          - Open currently selected file in any mode
+"   <C-t>         - Open currently selected file in a new tab
+"   <C-v>         - Open currently selected file a vertical split
+"   <C-h>         - Open currently selected file in a horizontal split
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
   imap <silent><buffer> <C-o>
@@ -372,6 +379,12 @@ function! s:denite_filter_my_settings() abort
   \ denite#do_map('quit')
   inoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
+  inoremap <silent><buffer><expr> <C-t>
+  \ denite#do_map('do_action', 'tabopen')
+  inoremap <silent><buffer><expr> <C-v>
+  \ denite#do_map('do_action', 'vsplit')
+  inoremap <silent><buffer><expr> <C-h>
+  \ denite#do_map('do_action', 'split')
 endfunction
 
 " Define mappings while in denite window
@@ -380,6 +393,9 @@ endfunction
 "   d           - Delete currenly selected file
 "   p           - Preview currently selected file
 "   <C-o> or i  - Switch to insert mode inside of filter prompt
+"   <C-t>       - Open currently selected file in a new tab
+"   <C-v>       - Open currently selected file a vertical split
+"   <C-h>       - Open currently selected file in a horizontal split
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
@@ -396,6 +412,12 @@ function! s:denite_my_settings() abort
   \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <C-o>
   \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <C-t>
+  \ denite#do_map('do_action', 'tabopen')
+  nnoremap <silent><buffer><expr> <C-v>
+  \ denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> <C-h>
+  \ denite#do_map('do_action', 'split')
 endfunction
 
 " === Nerdtree shorcuts === "
@@ -406,8 +428,8 @@ nmap <leader>f :NERDTreeFind<CR>
 
 "   <Space> - PageDown
 "   -       - PageUp
-noremap <Space> <PageDown>
-noremap - <PageUp>
+" noremap <Space> <PageDown>
+" noremap - <PageUp>
 
 " === coc.nvim === "
 nmap <silent> <leader>dd <Plug>(coc-definition)
@@ -433,7 +455,7 @@ cmap w!! w !sudo tee %
 
 " === vim-jsdoc shortcuts ==="
 " Generate jsdoc for function under cursor
-nmap <leader>z :JsDoc<CR>
+" nmap <leader>z :JsDoc<CR>
 
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to
