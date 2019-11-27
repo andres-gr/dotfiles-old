@@ -1,5 +1,6 @@
 setopt nobeep
 
+#Dracula theme colors
 COLOR_CYAN="#8BE9FD"
 COLOR_DARK="#6272A4"
 COLOR_GREEN="#50FA7B"
@@ -124,6 +125,7 @@ fgr() {
 }
 
 
+# Copy dotfiles to git project location
 cpdtfls() {
   cp $HOME/.antigenrc $HOME/devel/dotfiles/.antigenrc
   cp $HOME/.gitconfig $HOME/devel/dotfiles/.gitconfig
@@ -140,6 +142,7 @@ cpdtfls() {
   cp -rf $HOME/.tmux/.git_status.sh $HOME/devel/dotfiles/tpm/
 }
 
+# Project man shortcuts
 cdpm() {
   if [ -z $1 ]; then
     echo $1
@@ -164,11 +167,11 @@ spaceship_git_time_since_last_commit() {
   # Only proceed if there is actually a commit.
   if last_commit=$(git log --pretty=format:'%at' -1 2> /dev/null); then
     now=$(date +%s)
-    seconds_since_last_commit=$((now-last_commit))
+    seconds_since_last_commit=$((now - last_commit))
 
     # Totals
     minutes=$((seconds_since_last_commit / 60))
-    hours=$((seconds_since_last_commit/3600))
+    hours=$((seconds_since_last_commit / 3600))
 
     # Sub-hours and sub-minutes
     days=$((seconds_since_last_commit / 86400))
