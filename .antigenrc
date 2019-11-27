@@ -12,6 +12,7 @@ antigen bundle node
 antigen bundle npm
 antigen bundle nvm
 antigen bundle tmux
+antigen bundle yarn
 antigen bundle z
 
 # Load external plugins

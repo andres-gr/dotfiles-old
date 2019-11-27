@@ -127,6 +127,7 @@ fgr() {
 
 # Copy dotfiles to git project location
 cpdtfls() {
+  cp $HOME/.antigen/bundles/denysdovhan/spaceship-prompt/sections/char.zsh $HOME/devel/dotfiles/char.zsh
   cp $HOME/.antigenrc $HOME/devel/dotfiles/.antigenrc
   cp $HOME/.gitconfig $HOME/devel/dotfiles/.gitconfig
   cp $HOME/.tmux.conf $HOME/devel/dotfiles/.tmux.conf
