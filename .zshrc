@@ -1,5 +1,15 @@
 setopt nobeep
 
+COLOR_CYAN="#8BE9FD"
+COLOR_DARK="#6272A4"
+COLOR_GREEN="#50FA7B"
+COLOR_ORANGE="#FFB86C"
+COLOR_PINK="#FF79C6"
+COLOR_PURPLE="#BD93F9"
+COLOR_RED="#FF5555"
+COLOR_WHITE="#F8F8F2"
+COLOR_YELLOW="#F1FA8C"
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -113,6 +123,7 @@ fgr() {
   fi
 }
 
+
 cpdtfls() {
   cp $HOME/.antigenrc $HOME/devel/dotfiles/.antigenrc
   cp $HOME/.gitconfig $HOME/devel/dotfiles/.gitconfig
@@ -142,7 +153,43 @@ FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
 FAST_HIGHLIGHT_STYLES[precommand]='fg=green'
 FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan'
 
+# Spaceship custom values
 SPACESHIP_GIT_STATUS_STASHED=''
+
+# Determine the time since last commit. If branch is clean,
+# use a neutral color, otherwise colors will vary according to time.
+spaceship_git_time_since_last_commit() {
+  spaceship::is_git || return
+
+  # Only proceed if there is actually a commit.
+  if last_commit=$(git log --pretty=format:'%at' -1 2> /dev/null); then
+    now=$(date +%s)
+    seconds_since_last_commit=$((now-last_commit))
+
+    # Totals
+    minutes=$((seconds_since_last_commit / 60))
+    hours=$((seconds_since_last_commit/3600))
+
+    # Sub-hours and sub-minutes
+    days=$((seconds_since_last_commit / 86400))
+    sub_hours=$((hours % 24))
+    sub_minutes=$((minutes % 60))
+
+    if [ $hours -ge 24 ]; then
+      commit_age="${days}d"
+    elif [ $minutes -gt 60 ]; then
+      commit_age="${sub_hours}h${sub_minutes}m"
+    else
+      commit_age="${minutes}m"
+    fi
+
+    spaceship::section "$COLOR_WHITE" "$commit_age"
+  fi
+}
+
+SPACESHIP_RPROMPT_ORDER=(
+  git_time_since_last_commit
+)
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
@@ -151,3 +198,4 @@ fi
 source $HOME/alias.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

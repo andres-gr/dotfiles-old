@@ -1,0 +1,26 @@
+# Load antigen source
+source $HOME/antigen.zsh
+
+# Load oh-my-zsh library
+antigen use oh-my-zsh
+
+# Load build in plugins
+antigen bundle command-not-found
+antigen bundle git
+antigen bundle gitfast
+antigen bundle node
+antigen bundle npm
+antigen bundle nvm
+antigen bundle tmux
+antigen bundle z
+
+# Load external plugins
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+
+# Load theme
+antigen theme denysdovhan/spaceship-prompt
+
+antigen apply
