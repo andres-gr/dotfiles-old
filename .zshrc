@@ -8,6 +8,7 @@ typeset -U fpath
 
 export TERM="xterm-256color"
 export ZSH=$HOME/.oh-my-zsh
+export ANTIGEN=$HOME/.antigenrc
 export ANDROID_AVD_HOME=$HOME/.android/avd
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANTIBODY_HOME=$HOME/.zsh
@@ -32,40 +33,17 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Set default editor to nvim
-# export EDITOR='nvim'
 export EDITOR="code"
 
 # Enabled true color support for terminals
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-plugins=(
-  git
-  gitfast
-  history
-  node
-  npm
-  tmux
-  yarn
-  z
-  zsh-autosuggestions
-  zsh-completions
-)
-
-source $HOME/.zsh/plugins.sh
-
-autoload -U compinit && compinit
+# Load antigen and plugins
+source $ANTIGEN
 
 # TMUX
-# Automatically start tmux
-# ZSH_TMUX_AUTOSTART=true
-
 # Automatically connect to a previous session if it exists
 ZSH_TMUX_AUTOCONNECT=true
-
-# ZSH_TMUX_ITERM2=true
-
-# Enable command auto-correction.
-# ENABLE_CORRECTION="true"
 
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -136,6 +114,7 @@ fgr() {
 }
 
 cpdtfls() {
+  cp $HOME/.antigenrc $HOME/devel/dotfiles/.antigenrc
   cp $HOME/.gitconfig $HOME/devel/dotfiles/.gitconfig
   cp $HOME/.tmux.conf $HOME/devel/dotfiles/.tmux.conf
   cp $HOME/.zsh/plugins.txt $HOME/devel/dotfiles/plugins.txt
@@ -163,21 +142,10 @@ FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
 FAST_HIGHLIGHT_STYLES[precommand]='fg=green'
 FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan'
 
-# Set Spaceship as prompt
-autoload -U promptinit && promptinit
-prompt spaceship
-
-# SPACESHIP_PACKAGE_SHOW=false
-# SPACESHIP_NODE_SHOW=false
 SPACESHIP_GIT_STATUS_STASHED=''
-
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#   tmux attach -t default || tmux new -s default
-# fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
-  # tmux attach || tmux new
 fi
 
 source $HOME/alias.zsh
