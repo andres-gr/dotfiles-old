@@ -191,8 +191,17 @@ spaceship_git_time_since_last_commit() {
   fi
 }
 
+spaceship_rprompt_prefix() {
+  echo -n '%{'$'\e[1A''%}'
+}
+spaceship_rprompt_suffix() {
+  echo -n '%{'$'\e[1B''%}'
+}
+
 SPACESHIP_RPROMPT_ORDER=(
+  rprompt_prefix
   git_time_since_last_commit
+  rprompt_suffix
 )
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -202,4 +211,3 @@ fi
 source $HOME/alias.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
