@@ -5,7 +5,7 @@ source $HOME/antigen.zsh
 antigen use oh-my-zsh
 
 # Load build in plugins
-antigen bundle command-not-found
+# antigen bundle command-not-found
 antigen bundle git
 antigen bundle gitfast
 antigen bundle node
