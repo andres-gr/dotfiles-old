@@ -72,6 +72,15 @@ Plug 'heavenshell/vim-jsdoc'
 " Many syntax highlight
 Plug 'sheerun/vim-polyglot'
 
+" Surround
+Plug 'tpope/vim-surround'
+
+" Repeat everything
+Plug 'tpope/vim-repeat'
+
+" Sneak
+Plug 'justinmk/vim-sneak'
+
 " === UI === "
 " File explorer
 Plug 'scrooloose/nerdtree'
