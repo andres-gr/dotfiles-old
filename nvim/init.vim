@@ -254,6 +254,9 @@ let g:echodoc#enable_at_startup = 1
 " === Signify === "
 let g:signify_sign_delete = '-'
 
+" === CamelCaseMotion === "
+let g:camelcasemotion_key = '<leader>'
+
 " ============================================================================ "
 " ===                                UI                                    === "
 " ============================================================================ "
@@ -361,7 +364,7 @@ endfunction
 "   <leader>j - Search current directory for occurences of word under cursor
 nmap <leader>; :Denite buffer<CR>
 nmap <leader>t :DeniteProjectDir file/rec<CR>
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <leader>k :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:.<CR>
 
 " Define mappings while in 'filter' mode
@@ -434,9 +437,9 @@ nmap <leader>f :NERDTreeFind<CR>
 " noremap - <PageUp>
 
 " === coc.nvim === "
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gj <Plug>(coc-implementation)
 
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
@@ -450,14 +453,14 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 
 " === Easy-motion shortcuts ==="
 "   <leader>w - Easy-motion highlights first word letters bi-directionally
-map <leader>w <Plug>(easymotion-bd-w)
+map <leader><leader>w <Plug>(easymotion-bd-w)
+
+" === Sneak shortcuts ==="
+map <leader>s <Plug>Sneak_s
+map <leader>S <Plug>Sneak_S
 
 " Allows you to save files you opened without write permissions via sudo
 cmap w!! w !sudo tee %
-
-" === vim-jsdoc shortcuts ==="
-" Generate jsdoc for function under cursor
-" nmap <leader>z :JsDoc<CR>
 
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to

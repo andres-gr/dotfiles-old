@@ -43,6 +43,27 @@ Plug 'Shougo/neosnippet-snippets'
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
+" Surround
+Plug 'tpope/vim-surround'
+
+" Repeat everything
+Plug 'tpope/vim-repeat'
+
+" Sneak
+Plug 'justinmk/vim-sneak'
+
+" Commentary
+Plug 'tpope/vim-commentary'
+
+" Indent Object
+Plug 'michaeljsmith/vim-indent-object'
+
+" CamelCaseMotion
+Plug 'bkad/CamelCaseMotion'
+
+" Auto close pairs
+Plug 'jiangmiao/auto-pairs'
+
 " === Git Plugins === "
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
@@ -71,15 +92,6 @@ Plug 'heavenshell/vim-jsdoc'
 
 " Many syntax highlight
 Plug 'sheerun/vim-polyglot'
-
-" Surround
-Plug 'tpope/vim-surround'
-
-" Repeat everything
-Plug 'tpope/vim-repeat'
-
-" Sneak
-Plug 'justinmk/vim-sneak'
 
 " === UI === "
 " File explorer
