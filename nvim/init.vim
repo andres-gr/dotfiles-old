@@ -188,9 +188,7 @@ try
 
 " === Vim airline ==== "
 " Enable extensions
-let g:airline_extensions = ['branch', 'hunks', 'coc']
-
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_extensions = ['branch', 'hunks', 'coc', 'tabline']
 
 " Update section z to just have line number
 " let g:airline_section_z = airline#section#create(['linenr'])
