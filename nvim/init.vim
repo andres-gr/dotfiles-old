@@ -479,6 +479,15 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Multiple cursors
+nmap <expr> <silent> <leader>v <SID>select_current_word()
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
+
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
 nmap <leader>y :StripWhitespace<CR>
