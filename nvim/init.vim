@@ -23,12 +23,6 @@ source ~/.config/nvim/plugins.vim
 " Remap leader key to ,
 let g:mapleader=' '
 
-" Use relative numbers
-set rnu
-
-" Disable line numbers
-" set nonumber
-
 " Don't show last command
 " set noshowcmd
 
@@ -160,14 +154,8 @@ inoremap <silent><expr> <TAB>
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" Use ctrl-space for trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use CR to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Make CR select the first completion item and confirm when no item has been selected
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " === NeoSnippet === "
 " Map <C-k> as shortcut to activate snippet if available
@@ -269,6 +257,7 @@ let g:echodoc#enable_at_startup = 1
 
 " === Signify === "
 let g:signify_sign_delete = '-'
+let g:signify_sign_change = '~'
 
 " === CamelCaseMotion === "
 let g:camelcasemotion_key = '<leader>'
@@ -356,9 +345,9 @@ hi! SignifySignDelete guibg=NONE
 hi! SignifySignChange guibg=NONE
 
 " Highlight git change signs
-" hi! SignifySignAdd guifg=#99c794
-" hi! SignifySignDelete guifg=#ec5f67
-" hi! SignifySignChange guifg=#c594c5
+hi! SignifySignAdd guifg=#50FA7B
+hi! SignifySignDelete guifg=#FF5555
+hi! SignifySignChange guifg=#FFB86C
 
 " Change line number colors
 hi! LineNr cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
@@ -461,8 +450,34 @@ nmap <leader>f :NERDTreeFind<CR>
 
 " === coc.nvim === "
 nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
-nmap <silent> <leader>gj <Plug>(coc-implementation)
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Use ctrl-space for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use CR to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Make CR select the first completion item and confirm when no item has been selected
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
@@ -529,10 +544,27 @@ set smartcase
 set autoread
 
 " Enable line numbers
-set number
+set number relativenumber
 
 " Fix backspace
 set backspace=indent,eol,start
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" always show signcolumns
+set signcolumn=yes
+
+" Toggle relative numbers on INSERT or lost focus
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 
 " Set backups
 if has('persistent_undo')
