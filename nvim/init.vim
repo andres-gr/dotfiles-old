@@ -276,6 +276,10 @@ let g:camelcasemotion_key = '<leader>'
 " === CamelCaseMotion === "
 let g:vim_jsx_pretty_colorful_config = 1
 
+" === Auto-Pairs === "
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '<':'>'}
+let g:AutoPairsMoveCharacter = "()[]{}\"'<>"
+
 " ============================================================================ "
 " ===                                UI                                    === "
 " ============================================================================ "
@@ -501,6 +505,12 @@ nnoremap \w :w<CR>
 " Map \q to close current file
 nnoremap \q :q<CR>
 
+" Map ALT-jk move lines up or down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 " ============================================================================ "
 " ===                                 MISC.                                === "
 " ============================================================================ "
@@ -520,6 +530,9 @@ set autoread
 
 " Enable line numbers
 set number
+
+" Fix backspace
+set backspace=indent,eol,start
 
 " Set backups
 if has('persistent_undo')
