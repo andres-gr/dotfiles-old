@@ -93,6 +93,11 @@ Plug 'heavenshell/vim-jsdoc'
 " Many syntax highlight
 Plug 'sheerun/vim-polyglot'
 
+" Javascript, Typescript, JSX
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+
 " === UI === "
 " File explorer
 Plug 'scrooloose/nerdtree'

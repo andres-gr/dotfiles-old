@@ -10,6 +10,10 @@
 
 scriptencoding utf-8
 
+" === Polyglot === "
+let g:polyglot_disabled = ['jsx', 'javascript', 'typescript']
+
+" Load plugins
 source ~/.config/nvim/plugins.vim
 
 " ============================================================================ "
@@ -18,6 +22,9 @@ source ~/.config/nvim/plugins.vim
 
 " Remap leader key to ,
 let g:mapleader=' '
+
+" Use relative numbers
+set rnu
 
 " Disable line numbers
 " set nonumber
@@ -153,6 +160,15 @@ inoremap <silent><expr> <TAB>
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" Use ctrl-space for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use CR to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Make CR select the first completion item and confirm when no item has been selected
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
 " === NeoSnippet === "
 " Map <C-k> as shortcut to activate snippet if available
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -256,6 +272,9 @@ let g:signify_sign_delete = '-'
 
 " === CamelCaseMotion === "
 let g:camelcasemotion_key = '<leader>'
+
+" === CamelCaseMotion === "
+let g:vim_jsx_pretty_colorful_config = 1
 
 " ============================================================================ "
 " ===                                UI                                    === "
@@ -466,6 +485,21 @@ cmap w!! w !sudo tee %
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer
 vnoremap <leader>p "_dP
+
+" Map ALT-i to ESC in INSERT mode
+inoremap <A-i> <ESC>
+
+" Map ALT-hjkl to move cursor in INSERT mode
+inoremap <A-h> <Left>
+inoremap <A-j> <Down>
+inoremap <A-k> <Up>
+inoremap <A-l> <Right>
+
+" Map \w to write current file
+nnoremap \w :w<CR>
+
+" Map \q to close current file
+nnoremap \q :q<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
