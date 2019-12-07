@@ -121,8 +121,9 @@ let s:denite_options = {'default' : {
 \ 'highlight_matched_range': 'Visual',
 \ 'highlight_window_background': 'Visual',
 \ 'highlight_filter_background': 'DiffAdd',
-\ 'winrow': 1,
-\ 'vertical_preview': 1
+\ 'winrow': 3,
+\ 'vertical_preview': 1,
+\ 'winheight': 9
 \ }}
 
 " Loop through denite options and enable them
@@ -392,6 +393,10 @@ function! s:denite_filter_my_settings() abort
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Esc>
   \ denite#do_map('quit')
+  inoremap <silent><buffer><expr> <A-i>
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <A-i>
+  \ denite#do_map('quit')
   inoremap <silent><buffer><expr> <CR>
   \ denite#do_map('do_action')
   inoremap <silent><buffer><expr> <C-t>
@@ -418,6 +423,10 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
+  inoremap <silent><buffer><expr> <A-i>
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <A-i>
   \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> d
   \ denite#do_map('do_action', 'delete')
@@ -448,7 +457,7 @@ nmap <leader>f :NERDTreeFind<CR>
 
 " === coc.nvim === "
 nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
@@ -476,6 +485,9 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Autofix current file
+nnoremap <leader>l :CocCommand eslint.executeAutofix<CR>
 
 " Multiple cursors
 nmap <expr> <silent> <leader>v <SID>select_current_word()
@@ -515,23 +527,42 @@ vnoremap <leader>p "_dP
 " Map ALT-i to ESC in INSERT mode
 inoremap <A-i> <ESC>
 
+" Map ALT-i to ESC in NORMAL mode
+nnoremap <A-i> <ESC>
+
+" Map ALT-i to ESC in VISUAL mode
+vnoremap <A-i> <ESC>
+
 " Map ALT-hjkl to move cursor in INSERT mode
 inoremap <A-h> <Left>
 inoremap <A-j> <Down>
 inoremap <A-k> <Up>
 inoremap <A-l> <Right>
 
-" Map \w to write current file
+" Map ALT-hjkl to move cursor in COMMAND mode
+cnoremap <A-h> <Left>
+cnoremap <A-j> <Down>
+cnoremap <A-k> <Up>
+cnoremap <A-l> <Right>
+
+" Map \w to write current buffer
 nnoremap \w :w<CR>
 
-" Map \q to close current file
-nnoremap \q :q<CR>
+" Map \q to close current buffer
+nnoremap \q :bd<CR>
 
 " Map ALT-jk move lines up or down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Map TAB and S-TAB to cycle buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" Map Q to close current buffer
+nnoremap Q :q<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
