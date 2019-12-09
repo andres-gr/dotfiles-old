@@ -88,9 +88,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Colorscheme
-" Plug 'mhartington/oceanic-next'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'chriskempson/base16-vim'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
