@@ -10,8 +10,7 @@
 
 scriptencoding utf-8
 
-" === Polyglot === "
-let g:polyglot_disabled = ['jsx', 'javascript', 'typescript']
+syntax on
 
 " Load plugins
 source ~/.config/nvim/plugins.vim
@@ -243,17 +242,6 @@ endtry
 " Enable echodoc on startup
 let g:echodoc#enable_at_startup = 1
 
-" === vim-javascript === "
-" Enable syntax highlighting for JSDoc
-" let g:javascript_plugin_jsdoc = 1
-
-" === vim-jsx === "
-" Highlight jsx syntax even in non .jsx files
-" let g:jsx_ext_required = 0
-
-" === javascript-libraries-syntax === "
-" let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
-
 " === Signify === "
 let g:signify_sign_delete = '-'
 let g:signify_sign_change = '~'
@@ -278,14 +266,7 @@ set termguicolors
 " Editor theme
 set background=dark
 
-syntax on
-
-try
-"  colorscheme OceanicNext
-  colorscheme dracula
-catch
-  colorscheme slate
-endtry
+colorscheme dracula
 
 " Vim airline theme
 let g:airline_theme='dracula'

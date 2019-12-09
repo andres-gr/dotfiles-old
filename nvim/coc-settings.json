@@ -2,9 +2,6 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 25,
   "coc.preferences.formatOnSaveFiletypes": [],
-  "diagnostic.errorSign": "•",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
   "git.enableGutters": false,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",

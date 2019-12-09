@@ -205,7 +205,7 @@ SPACESHIP_RPROMPT_ORDER=(
 )
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+  exec _zsh_tmux_plugin_run
 fi
 
 source $HOME/alias.zsh
