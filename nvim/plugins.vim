@@ -77,11 +77,14 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " === Syntax Highlighting === "
 " Javascript, Typescript, JSX
-Plug 'yuezk/vim-js', { 'for': ['javascript', 'javascriptreact'] }
-Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescriptreact'] }
-Plug 'maxmellon/vim-jsx-pretty', { 'for': ['jsx'] }
+" Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
 
 " === Polyglot === "
+" let g:polyglot_disabled = ['jsx', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 let g:polyglot_disabled = ['jsx']
 
 " Many syntax highlight

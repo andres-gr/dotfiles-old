@@ -263,10 +263,10 @@ set termguicolors
 " Editor theme
 set background=dark
 
-colorscheme challenger_deep
+colorscheme dracula
 
 " Vim airline theme
-let g:airline_theme='challenger_deep'
+let g:airline_theme='dracula'
 
 " Add custom highlights in method that is executed every time a
 " colorscheme is sourced
@@ -317,14 +317,14 @@ hi! NonText guifg=NONE
 " hi! NERDTreeCWD guifg=#99c794
 
 " Make background color transparent for git changes
-" hi! SignifySignAdd guibg=NONE
-" hi! SignifySignDelete guibg=NONE
-" hi! SignifySignChange guibg=NONE
+hi! SignifySignAdd guibg=NONE
+hi! SignifySignDelete guibg=NONE
+hi! SignifySignChange guibg=NONE
 
 " Highlight git change signs
-" hi! SignifySignAdd guifg=#50FA7B
-" hi! SignifySignDelete guifg=#FF5555
-" hi! SignifySignChange guifg=#FFB86C
+hi! SignifySignAdd guifg=#50FA7B
+hi! SignifySignDelete guifg=#FF5555
+hi! SignifySignChange guifg=#FFB86C
 
 " Change line number colors
 hi! LineNr cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
