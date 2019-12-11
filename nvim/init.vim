@@ -34,6 +34,9 @@ set clipboard=unnamed
 " Hides buffers instead of closing them
 set hidden
 
+" Allow jumping to different files
+set path+=**
+
 " === TAB/Space settings === "
 " Insert spaces when TAB is pressed.
 set expandtab
@@ -43,12 +46,6 @@ set softtabstop=2
 
 " Indentation amount for < and > commands.
 set shiftwidth=2
-
-" do not wrap long lines by default
-" set nowrap
-
-" Don't highlight current cursor line
-" set nocursorline
 
 " Set line highlight
 set cursorline
@@ -266,10 +263,10 @@ set termguicolors
 " Editor theme
 set background=dark
 
-colorscheme dracula
+colorscheme challenger_deep
 
 " Vim airline theme
-let g:airline_theme='dracula'
+let g:airline_theme='challenger_deep'
 
 " Add custom highlights in method that is executed every time a
 " colorscheme is sourced
@@ -308,8 +305,8 @@ hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 hi! LineNr ctermfg=NONE guibg=NONE
 hi! SignColumn ctermfg=NONE guibg=NONE
-hi! StatusLine guifg=#16252b guibg=#6699CC
-hi! StatusLineNC guifg=#16252b guibg=#16252b
+" hi! StatusLine guifg=#16252b guibg=#6699CC
+" hi! StatusLineNC guifg=#16252b guibg=#16252b
 
 " Try to hide vertical spit and end of buffer symbol
 hi! VertSplit gui=NONE guifg=DarkGrey guibg=NONE
@@ -320,14 +317,14 @@ hi! NonText guifg=NONE
 " hi! NERDTreeCWD guifg=#99c794
 
 " Make background color transparent for git changes
-hi! SignifySignAdd guibg=NONE
-hi! SignifySignDelete guibg=NONE
-hi! SignifySignChange guibg=NONE
+" hi! SignifySignAdd guibg=NONE
+" hi! SignifySignDelete guibg=NONE
+" hi! SignifySignChange guibg=NONE
 
 " Highlight git change signs
-hi! SignifySignAdd guifg=#50FA7B
-hi! SignifySignDelete guifg=#FF5555
-hi! SignifySignChange guifg=#FFB86C
+" hi! SignifySignAdd guifg=#50FA7B
+" hi! SignifySignDelete guifg=#FF5555
+" hi! SignifySignChange guifg=#FFB86C
 
 " Change line number colors
 hi! LineNr cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
@@ -430,11 +427,6 @@ endfunction
 "  <leader>f - Opens current file location in NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
-
-"   <Space> - PageDown
-"   -       - PageUp
-" noremap <Space> <PageDown>
-" noremap - <PageUp>
 
 " === coc.nvim === "
 nmap <silent> gd <Plug>(coc-definition)

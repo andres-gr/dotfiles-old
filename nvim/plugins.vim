@@ -70,25 +70,26 @@ Plug 'tpope/vim-fugitive'
 " Generate JSDoc commands based on function signature
 Plug 'heavenshell/vim-jsdoc'
 
-" === Syntax Highlighting === "
-" Javascript, Typescript, JSX
-Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-
-" === Polyglot === "
-let g:polyglot_disabled = ['jsx', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescript.tsx', 'javascript.jsx']
-
-" Many syntax highlight
-Plug 'sheerun/vim-polyglot'
-
 " === UI === "
 " File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" === Syntax Highlighting === "
+" Javascript, Typescript, JSX
+Plug 'yuezk/vim-js', { 'for': ['javascript', 'javascriptreact'] }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescriptreact'] }
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['jsx'] }
+
+" === Polyglot === "
+let g:polyglot_disabled = ['jsx']
+
+" Many syntax highlight
+Plug 'sheerun/vim-polyglot'
+
 " Colorscheme
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rafi/awesome-vim-colorschemes'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
