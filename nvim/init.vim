@@ -22,9 +22,6 @@ source ~/.config/nvim/plugins.vim
 " Remap leader key to ,
 let g:mapleader=' '
 
-" Don't show last command
-" set noshowcmd
-
 " Show last command
 set showcmd
 
