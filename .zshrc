@@ -25,6 +25,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANTIBODY_HOME=$HOME/.zsh
 
 path=(/usr/local/bin $path)
+path=(/usr/local/sbin $path)
 path=(/usr/local/opt/ruby/bin $path)
 
 path+=(
