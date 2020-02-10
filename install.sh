@@ -2,6 +2,14 @@
 
 echo "Moving files to their location..."
 
+
+if [ -d $HOME/.vscode ]; then
+  DRACUL_DIR=$(find $HOME/.vscode -name "dracula-theme*" -type d)
+  if [ -d $DRACUL_DIR ]; then
+    ln -sf $PWD/dracula.json $DRACUL_DIR/theme/dracula.json
+  fi
+fi
+
 if [ ! -d $HOME/Documents/iTerm2 ]; then
   mkdir $HOME/Documents/iTerm2
 fi
@@ -65,4 +73,5 @@ fi
 ln -sf $PWD/tpm/.git_status.sh $HOME/.tmux/.git_status.sh
 
 echo "DONE..."
+
 exit 0
