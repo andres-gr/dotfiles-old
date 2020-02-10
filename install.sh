@@ -8,6 +8,11 @@ if [ -d $HOME/.vscode ]; then
   if [ -d $DRACUL_DIR ]; then
     ln -sf $PWD/dracula.json $DRACUL_DIR/theme/dracula.json
   fi
+
+  SYNTH_DIR=$(find $HOME/.vscode -name "robbowen.synthwave*" -type d)
+  if [ -d $SYNTH_DIR ]; then
+    ln -sf $PWD/synthwave84.css $SYNTH_DIR/synthwave84.css
+  fi
 fi
 
 if [ ! -d $HOME/Documents/iTerm2 ]; then
