@@ -6,7 +6,7 @@ if [ ! -d $HOME/Documents/iTerm2 ]; then
   mkdir $HOME/Documents/iTerm2
 fi
 
-cp -f $PWD/com.googlecode.iterm2.plist $HOME/Documents/iTerm2/
+ln -sf $PWD/com.googlecode.iterm2.plist $HOME/Documents/iTerm2/com.googlecode.iterm2.plist
 
 if [ -f $HOME/.antigenrc ]; then
   rm -rf $HOME/.antigenrc
