@@ -2,7 +2,6 @@
 
 echo "Moving files to their location..."
 
-
 if [ -d $HOME/.vscode ]; then
   DRACUL_DIR=$(find $HOME/.vscode -name "dracula-theme*" -type d)
   if [ -d $DRACUL_DIR ]; then
