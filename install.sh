@@ -55,7 +55,7 @@ rm -rf $HOME/.antigen/bundles/denysdovhan/spaceship-prompt/sections/char.zsh
 ln -sf $PWD/char.zsh $HOME/.antigen/bundles/denysdovhan/spaceship-prompt/sections/char.zsh
 
 if [ ! -d $HOME/.config/nvim ]; then
-  mkdir $HOME/.config/nvim
+  mkdir -p $HOME/.config/nvim
 fi
 
 ln -sf $PWD/nvim/init.vim $HOME/.config/nvim/init.vim
@@ -63,7 +63,7 @@ ln -sf $PWD/nvim/plugins.vim $HOME/.config/nvim/plugins.vim
 ln -sf $PWD/nvim/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
 if [ ! -d $HOME/.config/nvim/snippets ]; then
-  mkdir $HOME/.config/nvim/snippets
+  mkdir -p $HOME/.config/nvim/snippets
 fi
 
 for file in $PWD/nvim/snippets/*; do
