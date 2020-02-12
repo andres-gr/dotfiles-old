@@ -32,7 +32,7 @@ path+=(
   $HOME/flutter/bin
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
-  $(ruby -e 'puts File.join(Gem.user_dir, "bin")')
+  $(ruby -e 'puts Gem.bindir')
   $(dirname $(gem which colorls))/tab_complete.sh
 )
 
@@ -212,3 +212,4 @@ fi
 source $HOME/alias.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
