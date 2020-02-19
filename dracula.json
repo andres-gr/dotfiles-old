@@ -126,6 +126,7 @@
     "editorLineNumber.foreground": "#6272A4",
     "editor.selectionBackground": "#44475A",
     "editor.selectionHighlightBackground": "#424450",
+    "editor.foldBackground": "#21222C",
     "editor.wordHighlightBackground": "#8BE9FD50",
     "editor.wordHighlightStrongBackground": "#50FA7B50",
     "editor.findMatchBackground": "#FFB86C80",
