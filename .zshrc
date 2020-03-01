@@ -213,3 +213,4 @@ source $HOME/alias.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+ZSH_THEME="dracula-pro"
