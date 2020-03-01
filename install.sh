@@ -3,14 +3,21 @@
 echo "Moving files to their location..."
 
 if [ -d $HOME/.vscode ]; then
-  DRACUL_DIR=$(find $HOME/.vscode -name "dracula-theme*" -type d)
+  DRACUL_DIR=$(find $HOME/.vscode/extensions -name "dracula-theme.*" -type d)
   if [ -d $DRACUL_DIR ]; then
     ln -sf $PWD/dracula.json $DRACUL_DIR/theme/dracula.json
   fi
 
-  SYNTH_DIR=$(find $HOME/.vscode -name "robbowen.synthwave*" -type d)
+  SYNTH_DIR=$(find $HOME/.vscode/extensions -name "robbowen.synthwave*" -type d)
   if [ -d $SYNTH_DIR ]; then
     ln -sf $PWD/synthwave84.css $SYNTH_DIR/synthwave84.css
+  fi
+
+  DRACUL_PRO_DIR=$(find $HOME/.vscode/extensions -name "dracula-theme-pro.*" -type d)
+  if [ -d $DRACUL_PRO_DIR ]; then
+    for file in $PWD/dracula-pro/*; do
+      ln -sf $file $DRACUL_PRO_DIR/theme/
+    done
   fi
 fi
 
