@@ -1175,7 +1175,9 @@
       "name": "Punctuation accessor override",
       "scope": [
         "punctuation.accessor.ts",
-        "punctuation.accessor.tsx"
+        "punctuation.accessor.tsx",
+        "punctuation.definition.section.case-statement.ts",
+        "punctuation.definition.section.case-statement.tsx"
       ],
       "settings": {
         "foreground": "#FF80BF"
