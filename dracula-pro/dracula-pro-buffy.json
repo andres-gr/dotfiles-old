@@ -1176,6 +1176,8 @@
       "scope": [
         "punctuation.accessor.ts",
         "punctuation.accessor.tsx",
+        "punctuation.accessor.optional.ts",
+        "punctuation.accessor.optional.tsx",
         "punctuation.definition.section.case-statement.ts",
         "punctuation.definition.section.case-statement.tsx"
       ],
