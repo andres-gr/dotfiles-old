@@ -8,10 +8,10 @@ if [ -d $HOME/.vscode ]; then
     ln -sf $PWD/dracula.json $DRACUL_DIR/theme/dracula.json
   fi
 
-  SYNTH_DIR=$(find $HOME/.vscode/extensions -name "robbowen.synthwave*" -type d)
-  if [ -d $SYNTH_DIR ]; then
-    ln -sf $PWD/synthwave84.css $SYNTH_DIR/synthwave84.css
-  fi
+  # SYNTH_DIR=$(find $HOME/.vscode/extensions -name "robbowen.synthwave*" -type d)
+  # if [ -d $SYNTH_DIR ]; then
+  #   ln -sf $PWD/synthwave84.css $SYNTH_DIR/synthwave84.css
+  # fi
 
   DRACUL_PRO_DIR=$(find $HOME/.vscode/extensions -name "dracula-theme-pro.*" -type d)
   if [ -d $DRACUL_PRO_DIR ]; then
@@ -25,7 +25,7 @@ if [ ! -d $HOME/Documents/iTerm2 ]; then
   mkdir $HOME/Documents/iTerm2
 fi
 
-ln -sf $PWD/com.googlecode.iterm2.plist $HOME/Documents/iTerm2/com.googlecode.iterm2.plist
+# ln -sf $PWD/com.googlecode.iterm2.plist $HOME/Documents/iTerm2/com.googlecode.iterm2.plist
 
 if [ -f $HOME/.antigenrc ]; then
   rm -rf $HOME/.antigenrc
