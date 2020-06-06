@@ -260,10 +260,10 @@ set termguicolors
 " Editor theme
 set background=dark
 
-colorscheme dracula
+colorscheme dracula_pro
 
 " Vim airline theme
-let g:airline_theme='dracula'
+let g:airline_theme='dracula_pro'
 
 " Add custom highlights in method that is executed every time a
 " colorscheme is sourced

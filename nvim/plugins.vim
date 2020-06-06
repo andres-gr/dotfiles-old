@@ -93,6 +93,7 @@ Plug 'sheerun/vim-polyglot'
 " Colorscheme
 " Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rafi/awesome-vim-colorschemes'
+Plug '~/.config/nvim/plugged/dracula-pro'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
