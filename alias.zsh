@@ -12,3 +12,5 @@ alias vim="nvim"
 alias weather="curl v2.wttr.in"
 alias brvdbg="/Applications/Brave\ Browser\ Dev.app/Contents/MacOS/Brave\ Browser\ Dev --remote-debugging-port=9222"
 alias co="code ."
+
+source $HOME/.oh-my-zsh/custom/plugins/pnpm/pnpm.plugin.zsh

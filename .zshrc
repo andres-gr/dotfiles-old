@@ -23,6 +23,7 @@ export ANTIGEN=$HOME/.antigenrc
 export ANDROID_AVD_HOME=$HOME/.android/avd
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANTIBODY_HOME=$HOME/.zsh
+# export RS_COMPOSE=$HOME/devel/repair-smith/repairsmith-compose
 
 path=(/usr/local/bin $path)
 path=(/usr/local/sbin $path)
@@ -32,6 +33,7 @@ path+=(
   $HOME/flutter/bin
   $ANDROID_HOME/tools
   $ANDROID_HOME/platform-tools
+  # $RS_COMPOSE
   $(ruby -e 'puts Gem.bindir')
   $(dirname $(gem which colorls))/tab_complete.sh
 )
@@ -214,3 +216,15 @@ source $HOME/alias.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 ZSH_THEME="dracula-pro"
+
+# # tabtab source for serverless package
+# # uninstall by removing these lines or running `tabtab uninstall serverless`
+# [[ -f /Volumes/FireHDD/devel/repair-smith/cardash/monorepo/node_modules/tabtab/.completions/serverless.zsh ]] && . /Volumes/FireHDD/devel/repair-smith/cardash/monorepo/node_modules/tabtab/.completions/serverless.zsh
+# # tabtab source for sls package
+# # uninstall by removing these lines or running `tabtab uninstall sls`
+# [[ -f /Volumes/FireHDD/devel/repair-smith/cardash/monorepo/node_modules/tabtab/.completions/sls.zsh ]] && . /Volumes/FireHDD/devel/repair-smith/cardash/monorepo/node_modules/tabtab/.completions/sls.zsh
+
+# pnpm
+export PNPM_HOME="/Users/andres/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
