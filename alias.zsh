@@ -9,8 +9,12 @@ alias rni="react-native run-ios"
 alias tm="tmux"
 alias top="vtop --theme=parallax"
 alias vim="nvim"
+alias v="nvim"
+alias vi="/usr/bin/vim"
 alias weather="curl v2.wttr.in"
 alias brvdbg="/Applications/Brave\ Browser\ Dev.app/Contents/MacOS/Brave\ Browser\ Dev --remote-debugging-port=9222"
 alias co="code ."
+alias cup="cd .."
+alias lg="lazygit"
 
 source $HOME/.oh-my-zsh/custom/plugins/pnpm/pnpm.plugin.zsh

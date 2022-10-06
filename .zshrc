@@ -23,11 +23,22 @@ export ANTIGEN=$HOME/.antigenrc
 export ANDROID_AVD_HOME=$HOME/.android/avd
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANTIBODY_HOME=$HOME/.zsh
+export PNPM_HOME="/Users/andres/Library/pnpm"
+export BREW_CURL=/usr/local/opt/curl/bin
+export NVIM_INSTALL=$HOME/neovim/bin
+# export LVIM_INSTALL=$HOME/.local/bin
 # export RS_COMPOSE=$HOME/devel/repair-smith/repairsmith-compose
+
+export LDFLAGS="-L/usr/local/opt/curl/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include"
 
 path=(/usr/local/bin $path)
 path=(/usr/local/sbin $path)
 path=(/usr/local/opt/ruby/bin $path)
+path=($PNPM_HOME $path)
+path=($BREW_CURL $path)
+path=($NVIM_INSTALL $path)
+# path=($LVIM_INSTALL $path)
 
 path+=(
   $HOME/flutter/bin
@@ -190,7 +201,7 @@ spaceship_git_time_since_last_commit() {
       commit_age="${minutes}m"
     fi
 
-    spaceship::section "$COLOR_WHITE" "$commit_age"
+    spaceship::section "$COLOR_WHITE" "$commit_age ago"
   fi
 }
 
@@ -225,6 +236,5 @@ ZSH_THEME="dracula-pro"
 # [[ -f /Volumes/FireHDD/devel/repair-smith/cardash/monorepo/node_modules/tabtab/.completions/sls.zsh ]] && . /Volumes/FireHDD/devel/repair-smith/cardash/monorepo/node_modules/tabtab/.completions/sls.zsh
 
 # pnpm
-export PNPM_HOME="/Users/andres/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+# export PATH="$PNPM_HOME:$PATH"
 # pnpm end
