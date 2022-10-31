@@ -23,10 +23,10 @@ export ANTIGEN=$HOME/.antigenrc
 export ANDROID_AVD_HOME=$HOME/.android/avd
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANTIBODY_HOME=$HOME/.zsh
-export PNPM_HOME="/Users/andres/Library/pnpm"
+export PNPM_HOME=$HOME/Library/pnpm
 export BREW_CURL=/usr/local/opt/curl/bin
 export NVIM_INSTALL=$HOME/neovim/bin
-# export LVIM_INSTALL=$HOME/.local/bin
+export LVIM_INSTALL=$HOME/.local/bin
 # export RS_COMPOSE=$HOME/devel/repair-smith/repairsmith-compose
 
 export LDFLAGS="-L/usr/local/opt/curl/lib"
@@ -38,7 +38,7 @@ path=(/usr/local/opt/ruby/bin $path)
 path=($PNPM_HOME $path)
 path=($BREW_CURL $path)
 path=($NVIM_INSTALL $path)
-# path=($LVIM_INSTALL $path)
+path=($LVIM_INSTALL $path)
 
 path+=(
   $HOME/flutter/bin

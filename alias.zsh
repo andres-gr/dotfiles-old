@@ -11,10 +11,13 @@ alias top="vtop --theme=parallax"
 alias vim="nvim"
 alias v="nvim"
 alias vi="/usr/bin/vim"
+alias vo="nvim ."
 alias weather="curl v2.wttr.in"
 alias brvdbg="/Applications/Brave\ Browser\ Dev.app/Contents/MacOS/Brave\ Browser\ Dev --remote-debugging-port=9222"
 alias co="code ."
 alias cup="cd .."
 alias lg="lazygit"
+alias lv="lvim"
 
 source $HOME/.oh-my-zsh/custom/plugins/pnpm/pnpm.plugin.zsh
+
