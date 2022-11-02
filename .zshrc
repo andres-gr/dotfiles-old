@@ -27,6 +27,7 @@ export PNPM_HOME=$HOME/Library/pnpm
 export BREW_CURL=/usr/local/opt/curl/bin
 export NVIM_INSTALL=$HOME/neovim/bin
 export LVIM_INSTALL=$HOME/.local/bin
+export CARGOS=$HOME/.cargo/bin
 # export RS_COMPOSE=$HOME/devel/repair-smith/repairsmith-compose
 
 export LDFLAGS="-L/usr/local/opt/curl/lib"
@@ -39,6 +40,7 @@ path=($PNPM_HOME $path)
 path=($BREW_CURL $path)
 path=($NVIM_INSTALL $path)
 path=($LVIM_INSTALL $path)
+path=($CARGOS $path)
 
 path+=(
   $HOME/flutter/bin
